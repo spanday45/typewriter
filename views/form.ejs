@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:#f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .popup-form {
+     
+            position: fixed; /* Stay in place */
+            z-index: 9; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+        .popup-content {
+            background-color: #fff;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        * {
+  box-sizing: border-box;
+}
+
+.main {
+  background-color: white;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #1c89ff;
+  border: solid 1px transparent;
+  color: #210404;
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+  &:hover {
+    background-color: transparent;
+    border-color: #01ff84;
+    transition: all .1s ease-in-out;
+  }
+  
+}
+
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: transparent; 
+  margin: 30px auto 0 auto;
+  border: solid 2px #424242;
+  border-top: solid 2px #1c89ff;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.check {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate3d(-4px,50px,0);
+  opacity: 0;
+  span:nth-child(1) {
+    display: block;
+    width: 10px;
+    height: 2px;
+    background-color: #1c89ff;
+    transform: rotate(45deg);
+  }
+  span:nth-child(2) {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #750ef4;
+    transform: rotate(-45deg) translate3d(14px, -4px, 0);
+    transform-origin: 100%;
+  }
+}
+
+.loader.active {
+  animation: loading 2s ease-in-out; 
+  animation-fill-mode: forwards;
+}
+
+.check.active {
+  opacity: 1;
+  transform: translate3d(-4px,4px,0);
+  transition: all .5s cubic-bezier(.49, 1.74, .38, 1.74);
+  transition-delay: .2s;
+}
+
+@keyframes loading {
+  30% {
+    opacity:1; 
+  }
+  
+  85% {
+    opacity:1;
+    transform: rotate(1080deg);
+    border-color: #262626;
+  }
+  100% {
+    opacity:1;
+    transform: rotate(1080deg);
+     border-color: #1c89ff;
+  }
+}
+
+
+    </style>
+</head>
+<body>
+
+<h1 style="font-size: xx-large; font-family:Arial, Helvetica, sans-serif ; text-align: center;"> कृपया फारम भर्नुहोस् | </h1>
+
+
+<div id="popupForm" class="popup-form">
+    <div class="popup-content">
+       
+        <form action="/generate" method="post">
+            <div class="form-group">
+                <label for="fname">तपाईंको नाम:</label>
+                <input type="text" id="fname" name="fname">
+            </div>
+            <div class="form-group">
+                <label for="lname">		विषय:</label>
+                <input type="text" id="subject" name="subject">
+            </div>
+            <div class="form-group">
+                <label for="prati">	प्रति:</label>
+                <input type="text" id="prati" name="prati">
+            </div>
+            <div class="form-group">
+                <label for="lname">	महानिदेशक:</label>
+                <input type="text" id="director" name="director">
+            </div>
+            <div class="form-group">
+                <label for="patha">	पता:</label>
+                <input type="text" id="patha" name="patha">
+            </div>
+            <div class="form-group">
+                <label for="college">	कलेजको_नाम:</label>
+                <input type="text" id="college" name="college">
+            </div>
+            <div class="form-group">
+                <label for="class">		कक्षा:</label>
+                <input type="text" id="class" name="class">
+            </div>
+            <div class="form-group">
+                <label for="roll">		रोल_नम्बर:</label>
+                <input type="text" id="roll" name="roll">
+            </div>
+            <div class="form-group">
+                <label for="email">	इमेल_ठेगाना:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="phone">सम्पर्क_नम्बर:</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="dob">मिति:</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+            <div class="form-group">
+                <label for="dob">	हालको_जन्म_मिति:</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+            <div class="form-group">
+                <label for="dob1">	सही_जन्म_मिति:</label>
+                <input type="date" id="dob1" name="dob1">
+            </div>
+            <div class="form-group">
+                <label for="gender">लिंग:</label>
+                <select id="gender" name="gender">
+                    <option value="male">पुरुष</option>
+                    <option value="female">महिला</option>
+                    <option value="other">अन्य</option>
+                </select>
+            </div>
+           <br><br>
+           
+           <div class="main">
+            <button class="button">Send</button>
+            
+            
+            <div class="loader">
+              <div class="check">
+                <span class="check-one"></span>
+                <span class="check-two"></span>
+              </div>
+            </div>
+            
+          </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.querySelector('.button'),
+      loader = document.querySelector('.loader'),
+      check = document.querySelector('.check');
+  
+  btn.addEventListener('click', function () {
+    loader.classList.add('active');    
+  });
+ 
+  loader.addEventListener('animationend', function() {
+    check.classList.add('active'); 
+  });
+});
+</script>
+</body>
+</html>
