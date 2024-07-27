@@ -2,7 +2,7 @@
 module.exports= {
     HOST :"monorail.proxy.rlwy.net",
     USER : "root",
-    PASSWORD : "pgPHITQZczjtYmbxSdnVhRvxkgnOjkUR",
+    PASSWORD : "NYTjtCQYCwgEVnOeCOcEQbIZMJAinFYz",
     DB :"railway", 
     diaect : "mysql",
     pool:{
