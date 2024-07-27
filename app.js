@@ -39,7 +39,7 @@ app.post("/signup",async(req,res)=>{
        gender:gender
     })
     console.log(req.body)
-   res.render("login",{message:message})
+   res.render("login")
 })
 app.get('/landing',(req,res)=>{
     res.render("landingPage")
