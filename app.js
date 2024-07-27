@@ -10,7 +10,7 @@ app.set('view engine',"ejs")
 app.use(express.static("First/"))
 app.use(express.static("public/"))
 app.get('/',(req,res)=>{
-  alert("hello world")
+
   res.render("index")
 })
 app.use(express.static('First/'))
