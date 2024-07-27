@@ -2,7 +2,7 @@ const express = require("express")
 const {authenticator,infos}= require('./model/index')
 const { Op } = require("sequelize")
 const app = express()
-const bcrypt=require("bcrypt")
+// const bcrypt=require("bcrypt")
 const { mapValueFieldNames } = require("sequelize/lib/utils")
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -35,7 +35,7 @@ app.post("/signup",async(req,res)=>{
         lastname:lastname,
         email:email,
         phonenumber:phonenumber,
-        password:bcrypt.hashSync(password,8),
+        password:password,
        gender:gender
     })
     console.log(req.body)
@@ -58,7 +58,7 @@ app.post("/plogin",async(req,res)=>{
     let match =null
     console.log(k.length)
    if(k.length>0){
-     match = bcrypt.compareSync(password,k[0].password)
+     match = (password===k[0].password)
    }
    if(match){ 
    res.redirect('/landing')
